@@ -2,7 +2,7 @@ module TimeWillTell
   module Helpers
     module DateRangeHelper
 
-      def date_range(from_date, to_date, options = {})
+      def date_range(from_date, to_date, **options)
         format    = options.fetch(:format, :short)
         scope     = options.fetch(:scope, 'time_will_tell.date_range')
         separator = options.fetch(:separator, '—')
@@ -40,7 +40,7 @@ module TimeWillTell
           end
         end
 
-        without_year = I18n.t("#{scope}.#{template}", dates)
+        without_year = I18n.t("#{scope}.#{template}", **dates)
 
         if show_year && from_date.year == to_date.year
           I18n.t("#{scope}.with_year", date_range: without_year, year: from_year, default: without_year)

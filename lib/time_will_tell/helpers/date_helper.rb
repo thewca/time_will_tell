@@ -10,7 +10,7 @@ module TimeWillTell
         { unit: :minute, minutes_per_unit: 1 }
       ].freeze
 
-      def exact_distance_of_time_in_words(from_time, to_time, options = {})
+      def exact_distance_of_time_in_words(from_time, to_time, **options)
         options = {
           scope: :'time_will_tell.distance_in_words'
         }.merge!(options)
